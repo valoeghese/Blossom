@@ -1,15 +1,17 @@
 package tk.valoeghese.blossom;
 
+import static tk.valoeghese.blossom.InternalUtils.compound;
+import static tk.valoeghese.blossom.InternalUtils.compoundList;
+
 import io.github.antiquitymc.nbt.CompoundTag;
-import static tk.valoeghese.blossom.InternalUtils.*;
 
 public class Chunk implements Serialisable {
-	private Section[] sections = new Section[17];
+	private Section[] sections = new Section[16];
 
 	@Override
 	public CompoundTag toTag() {
 		CompoundTag data = compound();
-		data.put("Sections", compoundList(this.sections));
+		data.put("Sections", compoundList(new BlankSection(), this.sections));
 
 		CompoundTag result = compound();
 		result.put("Level", data);
@@ -29,8 +31,8 @@ class Section implements Serialisable {
 
 	@Override
 	public CompoundTag toTag() {
-		// TODO Auto-generated method stub
-		return null;
+		CompoundTag result = compound();
+		return result;
 	}
 
 	@Override
@@ -38,5 +40,9 @@ class Section implements Serialisable {
 		// TODO Auto-generated method stub
 		
 	}
+	
+}
+
+class BlankSection extends Section {
 	
 }
