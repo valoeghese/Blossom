@@ -30,4 +30,11 @@ final class InternalUtils {
 				.map(StringTag::new)
 				.collect(Collectors.toList()));
 	}
+
+	static ListTag<CompoundTag> compoundList(Serialisable... compounds) {
+		return new ListTag<>(
+				Stream.of(compounds)
+				.map(Serialisable::toTag)
+				.collect(Collectors.toList()));
+	}
 }
