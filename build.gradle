@@ -1,0 +1,21 @@
+plugins {
+    // Apply the java-library plugin to add support for Java Library
+    id 'java-library'
+}
+
+repositories {
+	mavenCentral()
+    jcenter()
+    maven {
+        name = "JitPack"
+        url = "https://jitpack.io/"
+    }
+}
+
+dependencies {
+    api 'com.google.guava:guava:28.0-jre'
+    api 'it.unimi.dsi:fastutil:8.3.1'
+	implementation "com.github.AntiquityMC:Nbt:1.1.0"
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+}
